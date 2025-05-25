@@ -18,13 +18,13 @@
                     <!-- ***** Serach Start ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                      <li class="scroll-to-section"><a href="#services">Services</a></li>
-                      <li class="scroll-to-section"><a href="#courses">Courses</a></li>
-                      <li class="scroll-to-section"><a href="#team">Team</a></li>
-                      <li class="scroll-to-section"><a href="#contact">Contact</a></li>
-                      <li class=""><a href="#register">Join Now!</a></li>
-                  </ul>   
+                      <li><a href="{{ url('/') }}">Home</a></li>
+                      <li><a href="{{ url('/#services') }}">Services</a></li>
+                      <li><a href="{{ url('/#courses') }}">Courses</a></li>
+                      <li><a href="{{ url('/#team') }}">Team</a></li>
+                      <li><a href="{{ url('/#contact') }}">Contact</a></li>
+                      <li><a href="{{ route('register') }}">Join Now!</a></li>
+                    </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>

@@ -44,10 +44,10 @@ https://templatemo.com/tm-586-scholar
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-@include('component.header')
+@include('user.component.header')
   <!-- ***** Header Area End ***** -->
-@include ('component.banner')
-@include ('component.footer')
+@include ('user.component.banner')
+@include ('user.component.footer')
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->

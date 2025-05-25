@@ -1566,6 +1566,57 @@ Contact Style
   color: #fff;
 }
 
+#contact-form select {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background-color: rgba(249, 235, 255, 0.15);
+  border: none;
+  outline: none;
+  font-weight: 300;
+  padding: 0px 20px;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 3;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 20px;
+}
+
+#contact-form select option {
+  color: #000;
+}
+
+#contact-form input[type="date"] {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background-color: rgba(249, 235, 255, 0.15);
+  border: none;
+  outline: none;
+  font-weight: 300;
+  padding: 0px 20px;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 3;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Chrome fix - show calendar icon in white */
+#contact-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
 #contact-form textarea {
   width: 100%;
   height: 120px;
@@ -1587,17 +1638,20 @@ Contact Style
 }
 
 #contact-form button {
+  display: block;
+  margin: 0 auto; /* Ini yang membuat tombol berada di tengah */
   border: none;
   height: 50px;
   font-size: 14px;
   font-weight: 600;
   background-color: #fff;
-  padding: 0px 25px;
+  padding: 0px 100px;
   border-radius: 25px;
   color: #7a6ad8;
   transition: all .4s;
   position: relative;
   z-index: 3;
+  cursor: pointer;
 }
 
 #contact-form button:hover {

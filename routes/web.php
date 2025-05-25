@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UsersRegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view(view: 'layout.index');
-});
+//Route::get('/', function () {
+    //return view(view: 'user.index');});
+Route::get('/', [IndexController::class, 'index'])->name('index');
+
+Route::get('/register', [UsersRegisterController::class, 'showRegistrationForm'])->name('register');
