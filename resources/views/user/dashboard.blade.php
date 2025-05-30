@@ -44,7 +44,7 @@ https://templatemo.com/tm-586-scholar
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-@include('user.component.header')
+@include('user.component.navbar')
   <!-- ***** Header Area End ***** -->
 @include ('user.component.banner')
 @include ('user.component.footer')

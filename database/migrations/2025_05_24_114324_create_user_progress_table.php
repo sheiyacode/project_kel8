@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('score')->default(0);
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
 
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('set null');
             $table->foreign('quiz_id')->references('id')->on('quizzes')->onDelete('set null');

@@ -8,7 +8,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('user.index'); // pastikan buat view ini
+        return view('index'); // pastikan buat view ini
     }
 
 }

@@ -17,31 +17,43 @@ class UsersRegisterController extends Controller
 
     public function register(Request $request)
     {
+        //dd($request->all(),
+        //'password' => $request->password,
+        //'password_confirmation' => $request->password_confirmation,
+    //);
+    
         $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:100'],
-            'email' => ['required', 'email', 'max:150', 'unique:users'],
+            
+            'full_name' => ['nullable', 'string', 'max:100'],
+            'email' => ['required', 'email', 'max:100', 'unique:users,email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'subscription' => ['in:free,lite,standard','pro'], // optional, default free
-            'phone' => ['string', 'max:20'],
-            'address' => ['string'],
+            'gender' => ['required', 'in:pria,wanita'],
+            'tanggal_lahir' => ['nullable', 'date'],
+            'nomor_telepon' => ['nullable', 'string', 'max:20'],
+            /**'setuju_terms' => ['accepted'],*/
         ]);
 
         if ($validator->fails()) {
+            //dd($validator->errors()->all());
             return back()->withErrors($validator)->withInput();
         }
 
-        $user = User::create([
-            'name' => $request->name,
+         User::create([
+            
+            'full_name' => $request->full_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'subscription' => $request->subscription ?? 'free',
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'email_verified_at' => now(),
+            'gender' => $request->gender,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'nomor_telepon' => $request->nomor_telepon,
+            //'address' => $request->address
+            /**'setuju_terms' => $request->has('setuju_terms'),*/
         ]);
 
-        auth()->login($user);
+        //auth()->login($user);
 
-        return redirect('/dashboard')->with('success', 'Registrasi berhasil! Selamat datang ' . $user->name);
+        return redirect()->route('login_user')
+        ->with('success', 'Registrasi berhasil! Silakan login terlebih dahulu.');
+        //return redirect('/dashboard')->with('success', 'Registrasi berhasil! Selamat datang ' . $user->name);
     }
 }

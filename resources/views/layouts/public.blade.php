@@ -1,0 +1,1 @@
+resources/views/layouts/public.blade.php

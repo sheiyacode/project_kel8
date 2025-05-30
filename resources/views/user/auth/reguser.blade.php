@@ -1,4 +1,4 @@
-@extends('user.layout.main')
+@include('user.component.navbar')
 
 @section('content')
 
@@ -14,32 +14,39 @@
         </div>
         <div class="col-lg-6 center">
           <div class="contact-us-content">
-            <form id="contact-form" action="" method="post">
+            <form id="contact-form" action="{{ route('register.submit') }}" method="POST">
+              @csrf
               <div class="row">
                 <div class="col-lg-12">
                   <fieldset>
-                    <input type="username" name="username" id="username" placeholder="User Name..." autocomplete="on" required>
+                    <input type="name" name="full_name" id="full_name" placeholder="Your Name..." value="" required>
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
-                    <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
+                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
                     <input type="password" name="password" id="password" placeholder="Your Password..." autocomplete="on" required>
+                    @error('password')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
-                    <input type="full_name" name="full_name" id="full_name" placeholder="Your Full Name..." autocomplete="on" required>
+                    <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password..." autocomplete="on" required>
+                    @error('password')
+                      <small class="text-danger">{{ $message }}</small>
+                    @enderror
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
-                    <select name="gender" id="gender" class="form-control" required>
-                      <option value="">Select Gender</option>
+                    <select name="gender" id="gender">
+                      <option value="">Pilih Gender</option>
                       <option value="pria">Pria</option>
                       <option value="wanita">Wanita</option>
                     </select>
@@ -52,9 +59,10 @@
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
-                    <input type="date" name="birth_date" id="birth_date" required>
+                    <input type="date" name="tanggal_lahir" id="tanggal_lahir" required>
                   </fieldset>
                 </div>
+                <a href="{{ url('/login') }}" class="orange-button d-block text-center mb-3 text-white">Sudah Punya Akun?</a>
                 <div class="col-lg-12">
                   <fieldset>
                     <button type="submit" id="form-submit" class="orange-button">Submit</button>
